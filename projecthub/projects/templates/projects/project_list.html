@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}All Projects{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Projects</h1>
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+  <a href="{% url 'create_project' %}" class="btn btn-success">
+    + New Project
+  </a>
+
+
+            {% comment %} Sort Dropdown {% endcomment %}
+            <form method="get" class="d-flex align-items-center">
+    <label for="sort" class="me-2 fw-semibold">Sort:</label>
+    <select name="sort" id="sort" class="form-select form-select-sm" onchange="this.form.submit()">
+      <option value="due" {% if request.GET.sort == 'due' %}selected{% endif %}>Due Date</option>
+      <option value="priority" {% if request.GET.sort == 'priority' %}selected{% endif %}>Priority</option>
+      <option value="title" {% if request.GET.sort == 'title' %}selected{% endif %}>Title</option>
+    </select>
+  </form>
+</div>
+
+
+
+  {% if projects %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-2">
+      {% for project in projects %}
+        <div class="col">
+          <div class="card h-100 shadow-sm position-relative">
+            
+            <!-- Pin/Unpin Button in top-right corner -->
+            <form action="{% url 'toggle_pin' project.pk %}" method="post"
+                  class="position-absolute top-0 end-0 m-2">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-link p-0 border-0" 
+                      title="{% if project.is_pinned %}Unpin{% else %}Pin{% endif %}">
+                <i class="fa-solid fa-thumbtack fa-xl fa-rotate-by"
+                   style="--fa-rotate-angle: {% if project.is_pinned %}45deg{% else %}0deg{% endif %}; 
+                          color: {% if project.is_pinned %} #ff0000; {% else %}#888{% endif %};">
+                </i>
+              </button>
+            </form>
+       
+
+            {% comment %} Label {% endcomment %}
+
+<p class="card-text">
+  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %}">
+    {{ project.get_priority_display }}
+  </span>
+</p>
+
+            <div class="card-body project-card">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text text-muted">{{ project.description|truncatewords:20 }}</p>
+              <p class="card-text">
+                <small class="text-muted">Due: {{ project.due_date }}</small>
+              </p>
+
+              <!-- View Details Button -->
+              <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary btn-sm">View Details</a>
+              <a href="{% url 'edit_project' project.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+
+            </div>
+          </div>
+        </div>
+   
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No projects available yet.</p>
+  {% endif %}
+{% endblock %}

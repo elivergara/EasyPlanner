@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}  {# <--- This line is required for crispy forms #}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+  <h1>Create a New Project</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <h1>{% if editing %}Edit Project{% else %}Create a New Project{% endif %}</h1>
+
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-2 ms-2">Cancel</a>
+  </form>
+{% endblock %}

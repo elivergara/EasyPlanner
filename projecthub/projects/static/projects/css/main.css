@@ -1,0 +1,29 @@
+.pin-toggle-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.pin-toggle-btn i {
+  color: #888;
+  transition: color 0.2s ease;
+}
+.pin-toggle-btn:hover i {
+  color: #ff0000;
+}
+
+.project-card .card-body {
+  padding: 0.5rem !important;
+}
+.project-card .card-title {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+.project-card .card-text {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+.project-card .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
