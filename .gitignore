@@ -2,3 +2,5 @@ __*
 db.sqlite3
 .vscode/
 gitignore
+projecthub/db.sqlite3
+

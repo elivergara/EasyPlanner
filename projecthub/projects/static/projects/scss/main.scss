@@ -14,9 +14,51 @@
   }
 }
 
+
 body {
-  background-color: #e8f6ff;
+  background-image: url('/static/img/background.svg') !important;
+  background-size: 110%;      // scale to fill screen
+  background-position:top center;   // center it
+  background-repeat:repeat-y;   // no tiling
+  background-attachment: fixed;   // stays in place on scroll
+  background-color: #fef4e5ff;
+
 }
+
+.reg {
+  color: #000; // makes the whole paragraph text black
+
+  a {
+    color: #196efa !important; // makes the link text black
+    text-decoration: none; // optional, keeps the link look
+    font-weight:bold;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); // white overlay
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: #e7e7e7;
+
+}
+
+.project-detail-box {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
 
 
 .project-card {
@@ -45,3 +87,12 @@ body {
   background-color: #e5eee5 !important;
   border-style:dotted;
 }
+
+.container {
+  .text-center {
+    border: none;
+    max-height: 10rem;
+  }
+}
+
+
