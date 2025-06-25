@@ -3,7 +3,7 @@
 {% block title %}All Projects{% endblock %}
 
 {% block content %}
-  <h1 class="mb-4">Projects</h1>
+  {% comment %} <h1 class="mb-4">Projects</h1> {% endcomment %}
   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
   <a href="{% url 'create_project' %}" class="btn btn-success">
     + New Project
@@ -46,7 +46,7 @@
             {% comment %} Label {% endcomment %}
 
 <p class="card-text">
-  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %}">
+  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %} m-1">
     {{ project.get_priority_display }}
   </span>
 </p>
@@ -59,7 +59,7 @@
               </p>
 
               <!-- View Details Button -->
-              <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary btn-sm">View Details</a>
+              <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary btn-sm me-2">View Details</a>
               <a href="{% url 'edit_project' project.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
 
             </div>

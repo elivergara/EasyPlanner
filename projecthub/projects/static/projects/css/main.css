@@ -12,6 +12,10 @@
   color: #ff0000;
 }
 
+body {
+  background-color: #e8f6ff;
+}
+
 .project-card .card-body {
   padding: 0.5rem !important;
 }
@@ -26,4 +30,9 @@
 .project-card .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
+}
+
+.card {
+  background-color: #e5eee5 !important;
+  border-style: dotted;
 }
