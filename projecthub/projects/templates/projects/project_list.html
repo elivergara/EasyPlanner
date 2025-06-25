@@ -71,4 +71,17 @@
   {% else %}
     <p>No projects available yet.</p>
   {% endif %}
+
+{% if projects %}
+  <div class="mt-4 text-end">
+    <a href="{% url 'delete_projects' %}" class="btn btn-outline-danger btn-sm m-4">
+      <i class="fa fa-trash"></i> Delete Projects
+    </a>
+  </div>
+{% endif %}
+
+
+
+
+
 {% endblock %}

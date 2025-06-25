@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Projects{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Delete Projects</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    {% if projects %}
+      <div class="mb-3">
+        <p>Select the projects you want to delete and click the button below.</p>
+      </div>
+
+      <ul class="list-group mb-3">
+        {% for project in projects %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <input type="checkbox" name="selected_projects" value="{{ project.id }}" id="proj-{{ project.id }}" class="form-check-input me-2">
+              <label for="proj-{{ project.id }}" class="form-check-label">{{ project.title }}</label>
+            </div>
+            <small class="text-muted">{{ project.due_date }}</small>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete the selected projects?');">
+        Delete Selected Projects
+      </button>
+
+      <a href="{% url 'dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+
+    {% else %}
+      <p>You don’t have any projects to delete.</p>
+    {% endif %}
+  </form>
+{% endblock %}

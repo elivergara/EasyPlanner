@@ -3,15 +3,15 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Project
 from .forms import ProjectForm
+from django.shortcuts import redirect
 
-
-# Create your views here.
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView
 from .models import Project
+from django.contrib import messages
 
 @login_required
 def project_list(request):
@@ -116,3 +116,20 @@ def edit_project(request, pk):
     else:
         form = ProjectForm(instance=project)
     return render(request, 'projects/project_form.html', {'form': form, 'editing': True})
+
+# Enable the Delete Page functions
+@login_required
+def delete_projects(request):
+    if request.method == 'POST':
+        selected_ids = request.POST.getlist('selected_projects')
+        if selected_ids:
+            projects_to_delete = Project.objects.filter(id__in=selected_ids, user=request.user)
+            deleted_count = projects_to_delete.count()
+            projects_to_delete.delete()
+            messages.success(request, f"{deleted_count} project(s) deleted.")
+        else:
+            messages.warning(request, "No projects were selected for deletion.")
+        return redirect('dashboard')
+
+    projects = Project.objects.filter(user=request.user).order_by('title')
+    return render(request, 'projects/delete_projects.html', {'projects': projects})
