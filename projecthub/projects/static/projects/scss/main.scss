@@ -1,3 +1,5 @@
+$card_bg:#fcf9b2;
+
 .pin-toggle-btn {
   border: none;
   background: transparent;
@@ -84,7 +86,7 @@ a {
 
 
 .card {
-  background-color: #e5eee5 !important;
+  background-color: $card_bg !important;
   border-style:dotted;
 }
 

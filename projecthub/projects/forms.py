@@ -17,7 +17,7 @@ class CustomUserCreationForm(UserCreationForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'description', 'due_date', 'priority', 'details', 'progress']
+        fields = ['progress','title', 'description', 'due_date', 'priority', 'details']
         labels = {
             'details': 'Project Details',
         }

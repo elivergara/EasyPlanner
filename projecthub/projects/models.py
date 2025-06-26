@@ -1,6 +1,7 @@
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 class Project(models.Model):
     PRIORITY_CHOICES = [(1, 'High'),(2, 'Medium'),(3, 'Low')]
@@ -25,4 +26,8 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-
+    def days_remaining(self):
+        if self.due_date:
+            delta = (self.due_date - date.today()).days
+            return delta
+        return None

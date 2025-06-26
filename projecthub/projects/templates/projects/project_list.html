@@ -6,7 +6,7 @@
   {% comment %} <h1 class="mb-4">Projects</h1> {% endcomment %}
   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
   <a href="{% url 'create_project' %}" class="btn btn-success mt-1">
-    + New Project
+    + New Sticky
   </a>
 
 
@@ -47,16 +47,38 @@
 
 
             <div class="card-body project-card">
+<p class="card-text">
+{% if project.days_remaining != None %}
+  {% if project.days_remaining > 7 %}
+    <span class="badge bg-success m-1">{{ project.days_remaining }} days left</span>
+  {% elif project.days_remaining >= 0 %}
+    <span class="badge bg-warning text-dark m-1">{{ project.days_remaining }} days left</span>
+  {% else %}
+    <span class="badge bg-danger m-1">Overdue by {{ project.days_remaining }} days</span>
+  {% endif %}
+{% endif %}
+
+
+  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %}">
+    Priority: {{ project.get_priority_display }}
+  </span>
+
+
+</p>
+
+
               <h5 class="card-title">{{ project.title }}</h5>
               <p class="card-text text-muted">{{ project.description|truncatewords:20 }}</p>
               <p class="card-text">
                 <small class="text-muted">Due: {{ project.due_date }}</small>
               </p>
-<p class="card-text">
-  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %} m-1">
-    {{ project.get_priority_display }}
-  </span>
-</p>
+
+
+
+
+
+
+
             <div class="progress progress-bar-striped bg-light mb-2" style="height: 20px; border-radius: 10px">
               <div class="progress-bar custom-progress-bar" role="progressbar"
                   style="width: {{ project.progress }}%;"

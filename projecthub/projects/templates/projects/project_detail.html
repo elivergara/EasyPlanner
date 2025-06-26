@@ -10,7 +10,7 @@
       <p><strong>Description:</strong> {{ project.description }}</p>
       <p><strong>Start Date:</strong> {{ project.start_date }}</p>
       <p><strong>Due Date:</strong> {{ project.due_date }}</p>
-      <p><strong>Details:</strong> {{ project.details }}</p>
+      <p><strong>Details:</strong> {{ project.details|linebreaks }}</p>
       
       <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Back to Projects</a>
     </div>
