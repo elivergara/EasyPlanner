@@ -22,7 +22,6 @@
 </div>
 
 
-
   {% if projects %}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-2">
       {% for project in projects %}
@@ -58,9 +57,26 @@
                 <small class="text-muted">Due: {{ project.due_date }}</small>
               </p>
 
+            <div class="progress progress-bar-striped bg-light mb-2" style="height: 20px; border-radius: 10px">
+              <div class="progress-bar custom-progress-bar" role="progressbar"
+                  style="width: {{ project.progress }}%;"
+                  aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100">
+                {{ project.progress }}%
+              </div>
+            </div>
+
+
+
+
               <!-- View Details Button -->
               <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary btn-sm me-2">View Details</a>
               <a href="{% url 'edit_project' project.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+
+
+
+
+
+
 
             </div>
           </div>
@@ -69,7 +85,7 @@
       {% endfor %}
     </div>
   {% else %}
-    <p>No projects available yet.</p>
+    <p>You don't have any projects.</p>
   {% endif %}
 
 {% if projects %}

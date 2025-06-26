@@ -12,6 +12,14 @@ class Project(models.Model):
     due_date = models.DateField(null=True, blank=True)
     is_pinned = models.BooleanField(default=False)
     priority = models.PositiveSmallIntegerField(choices=PRIORITY_CHOICES, default=2)
+    PROGRESS_CHOICES = [
+        (0, '0%'),
+        (25, '25%'),
+        (50, '50%'),
+        (75, '75%'),
+        (100, '100%'),
+    ]
+    progress = models.PositiveSmallIntegerField(choices=PROGRESS_CHOICES, default=0)
 
 
     def __str__(self):
