@@ -5,7 +5,7 @@
 {% block content %}
   {% comment %} <h1 class="mb-4">Projects</h1> {% endcomment %}
   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-  <a href="{% url 'create_project' %}" class="btn btn-success">
+  <a href="{% url 'create_project' %}" class="btn btn-success mt-1">
     + New Project
   </a>
 
@@ -44,11 +44,7 @@
 
             {% comment %} Label {% endcomment %}
 
-<p class="card-text">
-  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %} m-1">
-    {{ project.get_priority_display }}
-  </span>
-</p>
+
 
             <div class="card-body project-card">
               <h5 class="card-title">{{ project.title }}</h5>
@@ -56,7 +52,11 @@
               <p class="card-text">
                 <small class="text-muted">Due: {{ project.due_date }}</small>
               </p>
-
+<p class="card-text">
+  <span class="badge {% if project.priority == 1 %}bg-danger{% elif project.priority == 2 %}bg-warning text-dark{% else %}bg-success{% endif %} m-1">
+    {{ project.get_priority_display }}
+  </span>
+</p>
             <div class="progress progress-bar-striped bg-light mb-2" style="height: 20px; border-radius: 10px">
               <div class="progress-bar custom-progress-bar" role="progressbar"
                   style="width: {{ project.progress }}%;"
@@ -69,8 +69,8 @@
 
 
               <!-- View Details Button -->
-              <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary btn-sm me-2">View Details</a>
-              <a href="{% url 'edit_project' project.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+              <a href="{% url 'project_detail' project.pk %}" class="btn btn-info btn-sm me-2">Details</a>
+              <a href="{% url 'edit_project' project.pk %}" class="btn btn-outline-primary btn-sm">Update</a>
 
 
 
@@ -85,19 +85,18 @@
       {% endfor %}
     </div>
   {% else %}
-    <p>You don't have any projects.</p>
+    <p>You don't have any projects.<br> Enter new projects above.</p>
+  {% endif %}
+
+  {% if projects.has_previous or projects.has_next %}
+    <nav class="d-</p>
   {% endif %}
 
 {% if projects %}
   <div class="mt-4 text-end">
-    <a href="{% url 'delete_projects' %}" class="btn btn-outline-danger btn-sm m-4">
+    <a href="{% url 'delete_projects' %}" class="btn btn-danger m-1">
       <i class="fa fa-trash"></i> Delete Projects
     </a>
   </div>
 {% endif %}
-
-
-
-
-
 {% endblock %}
