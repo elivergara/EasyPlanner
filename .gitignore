@@ -1,8 +1,19 @@
-__*
+
+# Ignore Python cache and environment
+__pycache__/
+*.py[cod]
+.venv/
+env/
+venv/
+__init__*
+
+# SQLite database
 db.sqlite3
-.vscode/
-gitignore
-projecthub/db.sqlite3
-/gitignore
-.gitignore
 /projecthub/db.sqlite3
+
+# VSCode settings
+.vscode/
+
+# Ignore everything named 'gitignore' without a dot (optional)
+gitignore
+.gitignore
