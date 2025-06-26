@@ -3,4 +3,6 @@ db.sqlite3
 .vscode/
 gitignore
 projecthub/db.sqlite3
-
+/gitignore
+.gitignore
+/projecthub/db.sqlite3
