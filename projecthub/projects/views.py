@@ -13,6 +13,12 @@ from django.views.generic import DetailView
 from .models import Project
 from django.contrib import messages
 
+# Add ICS export capability
+from icalendar import Calendar, Event
+from django.http import HttpResponse
+from datetime import datetime
+from django.utils.timezone import make_aware
+
 @login_required
 def project_list(request):
     sort = request.GET.get('sort', 'due')  # default to due date
@@ -133,3 +139,28 @@ def delete_projects(request):
 
     projects = Project.objects.filter(user=request.user).order_by('title')
     return render(request, 'projects/delete_projects.html', {'projects': projects})
+
+
+# ICS Exporting view
+def export_project_ics(request, project_id):
+    project = get_object_or_404(Project, id=project_id, user=request.user)
+
+    cal = Calendar()
+    event = Event()
+
+    event.add('summary', project.title)
+    event.add('description', project.description or project.details or "")
+    
+    if project.start_date:
+        event.add('dtstart', make_aware(datetime.combine(project.start_date, datetime.min.time())))
+    if project.due_date:
+        event.add('dtend', make_aware(datetime.combine(project.due_date, datetime.min.time())))
+
+    event.add('dtstamp', datetime.now())
+    event['uid'] = f'{project.id}@projecthub.local'
+
+    cal.add_component(event)
+
+    response = HttpResponse(cal.to_ical(), content_type='text/calendar')
+    response['Content-Disposition'] = f'attachment; filename="{project.title}.ics"'
+    return response

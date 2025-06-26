@@ -9,7 +9,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=300, blank=True)
     details = models.TextField(blank=True)
-    start_date = models.DateField(null=True, blank=True)
+    start_date = models.DateField(null=True, blank=False)
     due_date = models.DateField(null=True, blank=True)
     is_pinned = models.BooleanField(default=False)
     priority = models.PositiveSmallIntegerField(choices=PRIORITY_CHOICES, default=2)

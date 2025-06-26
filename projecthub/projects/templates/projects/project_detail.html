@@ -11,6 +11,11 @@
       <p><strong>Start Date:</strong> {{ project.start_date }}</p>
       <p><strong>Due Date:</strong> {{ project.due_date }}</p>
       <p><strong>Details:</strong> {{ project.details|linebreaks }}</p>
+
+      <a href="{% url 'export_project_ics' project.id %}" class="btn btn-outline-secondary">
+        <i class="fa-solid fa-calendar-arrow-down"></i> Add to Calendar
+      </a>
+
       
       <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Back to Projects</a>
     </div>

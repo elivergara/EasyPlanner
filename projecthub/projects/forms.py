@@ -17,10 +17,12 @@ class CustomUserCreationForm(UserCreationForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['progress','title', 'description', 'due_date', 'priority', 'details']
+        fields = ['progress','title', 'description', 'start_date', 'due_date', 'priority', 'details']
         labels = {
             'details': 'Project Details',
         }
         widgets = {
-            'due_date': forms.DateInput(attrs={'type': 'date'}),
-        }
+    'start_date': forms.DateInput(attrs={'type': 'date'}),
+    'due_date': forms.DateInput(attrs={'type': 'date'}),
+}
+
