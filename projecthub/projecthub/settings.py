@@ -55,7 +55,7 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
 
-PWA_APP_NAME = 'ProjectHub'
+PWA_APP_NAME = 'Sticky Planner'
 PWA_APP_DESCRIPTION = "Track your projects easily"
 PWA_APP_THEME_COLOR = '#0d6efd'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
