@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}Delete Projects{% endblock %}
+{% block title %}Delete Plans{% endblock %}
 
 {% block content %}
-  <h1 class="mb-4">Delete Projects</h1>
+  <h1 class="mb-4">Delete Plans</h1>
 
   <form method="post">
     {% csrf_token %}
 
     {% if projects %}
       <div class="mb-3">
-        <p>Select the projects you want to delete and click the button below.</p>
+        <p>Select the plans you want to delete and click the button below.</p>
       </div>
 
       <ul class="list-group mb-3">
@@ -26,13 +26,13 @@
       </ul>
 
       <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete the selected projects?');">
-        Delete Selected Projects
+        Delete Selected Plans
       </button>
 
       <a href="{% url 'dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
 
     {% else %}
-      <p>You don’t have any projects to delete.</p>
+      <p>You don’t have any plans to delete.</p>
     {% endif %}
   </form>
 {% endblock %}

@@ -153,9 +153,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'projects' / 'static',  # static files for your app
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'projects' / 'static',  # static files for your app
+# ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
