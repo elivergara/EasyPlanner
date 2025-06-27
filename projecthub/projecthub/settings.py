@@ -57,7 +57,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 PWA_APP_NAME = 'Stickies Planner'
 PWA_APP_DESCRIPTION = "Track your projects easily"
-PWA_APP_THEME_COLOR = '#0d6efd'
+PWA_APP_THEME_COLOR = "#fffcaa"
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
