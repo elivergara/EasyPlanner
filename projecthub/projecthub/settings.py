@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3$l=0q5do=tn!&p=oy2wt5$uaz48w4-6$@#@6e7wz3i3!a5x3m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['elivergara.net', 'postit.elivergara.net', '147.79.74.3']
 
 
 # Application definition
