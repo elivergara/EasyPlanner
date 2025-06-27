@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load pwa %}
+{% progressive_web_app_meta %}
+
   <meta charset="UTF-8" />
   <title>{% block title %}Project Tracker{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -88,7 +91,7 @@
       {% comment %} <i class="fa-solid fa-keyboard"></i> {% endcomment %}
       {% comment %} <i class="fa-solid fa-terminal"></i> {% endcomment %}
       <i class="fa-solid fa-laptop-code" style="color: #ffffff;"></i>
-      <a href="https://www.elivergara.com" target="_blank">Dev</a>
+      <a href="https://www.elivergara.com" target="_blank">Web</a>
   </div>
     </div>
     <div class="d-inline-block bg-dark px-2 py-1 rounded-2 shadow-sm">
@@ -101,9 +104,8 @@
     <a href="https://github.com/elivergara" target="_blank">Github</a>
   </div>
 <br>
-<br>
 
- <div class="d-inline-block bg-dark px-2 py-1 rounded-2 shadow-sm">
+ <div class="d-inline-block bg-dark px-2 py-1 rounded-2 shadow-sm mt-2">
     <i class="fa-solid fa-mug-hot" style="color: #ffffff;"></i>
     <a href="https://buymeacoffee.com/elivergara" target="_blank">Buy me a Coffee</a>
   </div>

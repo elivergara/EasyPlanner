@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django.contrib.sites',
     'fontawesomefree',
+    'pwa'
 
 ]
 
@@ -54,6 +55,25 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
 
+PWA_APP_NAME = 'ProjectHub'
+PWA_APP_DESCRIPTION = "Track your projects easily"
+PWA_APP_THEME_COLOR = '#0d6efd'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'portrait'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/img/icons/icon-192x192.png',
+        'sizes': '192x192'
+    },
+    {
+        'src': '/static/img/icons/icon-512x512.png',
+        'sizes': '512x512'
+    }
+]
+PWA_APP_LANG = 'en-US'
 
 
 MIDDLEWARE = [

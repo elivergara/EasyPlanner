@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('projects.urls')),  # App routes
     path('accounts/', include('django.contrib.auth.urls')),  # Login/Logout
+    path('', include('projects.urls')),                      # App routes
+    path('', include('pwa.urls')),                           # PWA routes
 ]
 
