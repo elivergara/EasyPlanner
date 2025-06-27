@@ -55,7 +55,7 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
 
-PWA_APP_NAME = 'Stickies Planner'
+PWA_APP_NAME = 'PlanIt'
 PWA_APP_DESCRIPTION = "Track your projects easily"
 PWA_APP_THEME_COLOR = "#fffcaa"
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
