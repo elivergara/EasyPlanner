@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     'planit.elivergara.net',
     'elivergara.net',
     'www.planit.elivergara.net',
-    '147.79.74.3',
+    '193.43.134.32',
     'localhost',
     '127.0.0.1',
 ]
