@@ -22,7 +22,7 @@ body {
 }
 
 .reg {
-  color: #000;
+  color: #222222;
 }
 .reg a {
   color: #196efa !important;
@@ -52,6 +52,9 @@ a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.project-card {
+  box-shadow: 0.125rem 0.125rem 0.35rem rgba(68, 68, 68, 0.7803921569);
+}
 .project-card .card-body {
   padding: 0.5rem !important;
 }
@@ -69,8 +72,8 @@ a {
 }
 
 .card {
-  background-color: #fffdc7 !important;
-  border-style: dotted;
+  background-color: #fcf9b2 !important;
+  border-style: solid;
 }
 
 .container .text-center {
@@ -93,7 +96,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 20%;
+  height: 140px;
   background-image: url("/static/img/login-banner.svg");
   background-size: cover;
   background-repeat: no-repeat;

@@ -28,7 +28,7 @@ body {
 }
 
 .reg {
-  color: #000; // makes the whole paragraph text black
+  color: #222222; // makes the whole paragraph text black
 
   a {
     color: #196efa !important; // makes the link text black
@@ -82,12 +82,14 @@ a {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
   }
+  box-shadow: .125rem .125rem .35rem #444444c7;
 }
 
 
 .card {
   background-color: $card_bg !important;
-  border-style:dotted;
+  border-style:solid;
+
 }
 
 .container {
@@ -112,8 +114,8 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 20%;
+    width:100%;
+    height: 140px;
     background-image: url('/static/img/login-banner.svg');
     background-size: cover;
     background-repeat: no-repeat;

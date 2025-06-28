@@ -4,10 +4,10 @@
 {% block title %}Create Project{% endblock %}
 
 {% block content %}
-  <h1>Plan Details</h1>
+  <h1>Note Details</h1>
   <form method="post">
     {% csrf_token %}
-     <h1>{% if editing %}Update Plan{% else %}Create a New Plan{% endif %}</h1>
+     <h1>{% if editing %}Update Note{% else %}Create a New Note{% endif %}</h1>
     {{ form|crispy }}
    
 
