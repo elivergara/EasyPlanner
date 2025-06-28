@@ -30,9 +30,8 @@ ALLOWED_HOSTS = ['planit.elivergara.net',
                  'elivergara.net', 
                  '147.79.74.3', 
                  'localhost',
-                 '127.0.0.1',  
-                 'planit.elivergara.net:443', 
-                 'planit.elivergara.net:8443']
+                 '127.0.0.1' 
+                 ]
 
 # ALLOWED_HOSTS = ['*']
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
