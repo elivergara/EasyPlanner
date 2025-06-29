@@ -8,8 +8,8 @@ venv/
 __init__*
 
 # SQLite database
-db.sqlite3
-/projecthub/db.sqlite3
+# db.sqlite3
+# /projecthub/db.sqlite3
 
 # VSCode settings
 .vscode/
